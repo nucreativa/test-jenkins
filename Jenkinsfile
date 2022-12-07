@@ -5,7 +5,7 @@ pipeline {
     environment {
         NEW_VERSION = '1.0.0'
         BRANCH_NAME = "${GIT_BRANCH.split("/").size() > 1 ? GIT_BRANCH.split("/")[1] : GIT_BRANCH}"
-        REGISTRY = "YourDockerhubAccount/YourRepository"
+        REGISTRY = "nucreativa/test-jenkins"
     }
 
     stages {
