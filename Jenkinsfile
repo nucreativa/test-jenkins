@@ -4,6 +4,7 @@ pipeline {
 
     environment {
         NEW_VERSION = '1.0.0'
+        BRANCH_NAME = "${GIT_BRANCH.split("/").size() > 1 ? GIT_BRANCH.split("/")[1] : GIT_BRANCH}"
     }
 
     stages {
@@ -20,7 +21,7 @@ pipeline {
 
             when {
                 expression {
-                    BRANCH_NAME == 'master'
+                    BRANCH_NAME == 'main'
                 }
             }
             
