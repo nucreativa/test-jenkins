@@ -4,6 +4,7 @@ pipeline {
 
     environment {
         REGISTRY = "nucreativa/test-jenkins"
+        REGISTRY_CREDENTIALS = 'dockerhub'
     }
 
     stages {
@@ -33,7 +34,9 @@ pipeline {
             steps {
                 echo 'pushing'
                 script {
-                    dockerImage.push()
+                    docker.withRegistry( '', REGISTRY_CREDENTIALS ) {
+                        dockerImage.push()
+                    }
                 }
             }
 
