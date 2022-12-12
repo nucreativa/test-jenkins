@@ -32,7 +32,9 @@ pipeline {
             
             steps {
                 echo 'pushing'
-                dockerImage.push()
+                script {
+                    dockerImage.push()
+                }
             }
 
         }
